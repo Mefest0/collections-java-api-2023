@@ -1,15 +1,14 @@
 package main.java.map.Pesquisa;
 
 public class Produto {
-  //atributos
   private String nome;
   private double preco;
   private int quantidade;
 
-  public Produto(String nome, double preco, int quantidade) {
-    this.nome = nome;
+  public Produto(double preco, int quantidade, String nome) {
     this.preco = preco;
     this.quantidade = quantidade;
+    this.nome = nome;
   }
 
   public String getNome() {
@@ -26,10 +25,10 @@ public class Produto {
 
   @Override
   public String toString() {
-    return "Produto{" +
-        "nome='" + nome + '\'' +
-        ", preco=" + preco +
-        ", quantidade=" + quantidade +
-        '}';
+    return "ContagemPalavras{" +
+            "nome='" + nome + '\'' +
+            ", preco=" + preco +
+            ", quantidade=" + quantidade +
+            '}';
   }
 }

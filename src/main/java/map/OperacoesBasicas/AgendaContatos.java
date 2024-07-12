@@ -4,70 +4,50 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class AgendaContatos {
-  //atributo
-  private Map<String, Integer> agendaContatoMap;
+    private Map<String, Integer> agendaContatoMap;
 
-  public AgendaContatos() {
-    this.agendaContatoMap = new HashMap<>();
-  }
-
-  public void adicionarContato(String nome, Integer telefone) {
-    agendaContatoMap.put(nome, telefone);
-  }
-
-  public void removerContato(String nome) {
-    if (!agendaContatoMap.isEmpty()) {
-      agendaContatoMap.remove(nome);
-    } else {
-      System.out.println("A agenda de contatos está vazia.");
+    public AgendaContatos() {
+        this.agendaContatoMap = new HashMap<>();
     }
-  }
 
-  public void exibirContatos() {
-    if (!agendaContatoMap.isEmpty()) {
-      System.out.println(agendaContatoMap);
-    } else {
-      System.out.println("A agenda de contatos está vazia.");
+    public void adicionarContato(String nome, Integer telefone){
+        agendaContatoMap.put(nome,telefone);
     }
-  }
-
-  public Integer pesquisarPorNome(String nome) {
-    Integer numeroPorNome = null;
-    if (!agendaContatoMap.isEmpty()) {
-      numeroPorNome = agendaContatoMap.get(nome);
-      if (numeroPorNome == null) {
-        System.out.println("Contato não encontrado na agenda.");
-      }
-    } else {
-      System.out.println("A agenda de contatos está vazia.");
+    public void removerContato(String nome){
+        if(agendaContatoMap.isEmpty()){
+            agendaContatoMap.remove(nome);
+        }
     }
-    return numeroPorNome;
-  }
 
-  public static void main(String[] args) {
-    AgendaContatos agendaContatos = new AgendaContatos();
+    public void exibirContatos(){
+        System.out.println(agendaContatoMap);
+    }
 
-    // Adicionar contatos
-    agendaContatos.adicionarContato("Camila", 123456);
-    agendaContatos.adicionarContato("João", 5665);
-    agendaContatos.adicionarContato("Carlos", 1111111);
-    agendaContatos.adicionarContato("Ana", 654987);
-    agendaContatos.adicionarContato("Maria", 1111111);
-    agendaContatos.adicionarContato("Camila", 44444);
+    public Integer pesquisarPorNome(String nome) {
+        Integer numeroPorNome = null;
+        if (!agendaContatoMap.isEmpty()) {
+            agendaContatoMap.get(nome);
+            numeroPorNome = agendaContatoMap.get(nome);
+        }
+        return numeroPorNome;
+    }
 
-    agendaContatos.exibirContatos();
+    public static void main(String[] args){
+        AgendaContatos agendaContatos = new AgendaContatos();
 
-    // Remover um contato
-    agendaContatos.removerContato("Maria");
-    agendaContatos.exibirContatos();
+        agendaContatos.adicionarContato("Sergio", 12345678);
+        agendaContatos.adicionarContato("Sergio da z", 12345);
+        agendaContatos.adicionarContato("Sergio M", 123456);
+        agendaContatos.adicionarContato("SergioM", 454545);
+        agendaContatos.adicionarContato("Sergio MB", 787878);
+        agendaContatos.adicionarContato("Sergio Ted", 12345678);
+        agendaContatos.adicionarContato("Sergio Zap", 1234);
 
-    // Pesquisar número por nome
-    String nomePesquisa = "João";
-    Integer numeroPesquisa = agendaContatos.pesquisarPorNome("João");
-    System.out.println("Número de telefone de " + nomePesquisa + ": " + numeroPesquisa);
+        agendaContatos.exibirContatos();
 
-    String nomePesquisaNaoExistente = "Paula";
-    Integer numeroPesquisaNaoExistente = agendaContatos.pesquisarPorNome(nomePesquisaNaoExistente);
-    System.out.println("Número de telefone de " + nomePesquisaNaoExistente + ": " + numeroPesquisaNaoExistente);
-  }
+        agendaContatos.removerContato("Sergio MBZ");
+        agendaContatos.exibirContatos();
+
+        System.out.println("O número é: " + agendaContatos.pesquisarPorNome("Sergio MB"));
+    }
 }
